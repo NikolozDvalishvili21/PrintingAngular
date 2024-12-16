@@ -55,42 +55,63 @@
     </div>
 
     <div class="last_part">
-        <div class="right_side">
-          <p 
-            class="home" 
-            [class.selected]="selectedTab === 'home'" 
-            (click)="selectTab('home')">
-            Home
-          </p>
-          <p 
-            class="teespace" 
-            [class.selected]="selectedTab === 'teespace'" 
-            (click)="selectTab('teespace')">
-            TeeSpace
-          </p>
-          <p 
-            class="shop" 
-            [class.selected]="selectedTab === 'shop'" 
-            (click)="selectTab('shop')">
-            Shop
-          </p>
-          <p 
-            class="blog" 
-            [class.selected]="selectedTab === 'blog'" 
-            (click)="selectTab('blog')">
-            Blog
-          </p>
-          <p 
-            class="pages" 
-            [class.selected]="selectedTab === 'pages'" 
-            (click)="selectTab('pages')">
-            Pages
-          </p>
+      <div class="right_side">
+        <p
+          class="home"
+          [class.selected]="selectedTab === 'home'"
+          (click)="selectTab('home')"
+        >
+          Home
+        </p>
+        <p
+          class="teespace"
+          [class.selected]="selectedTab === 'teespace'"
+          (click)="selectTab('teespace')"
+        >
+          TeeSpace
+        </p>
+        <p
+          class="shop"
+          [class.selected]="selectedTab === 'shop'"
+          (click)="selectTab('shop')"
+        >
+          Shop
+        </p>
+        <p
+          class="blog"
+          [class.selected]="selectedTab === 'blog'"
+          (click)="selectTab('blog')"
+        >
+          Blog
+        </p>
+        <p
+          class="pages"
+          [class.selected]="selectedTab === 'pages'"
+          (click)="selectTab('pages')"
+        >
+          Pages
+        </p>
+      </div>
+      <div class="sale_side">
+        <img src="/assets/icons/fire.svg" alt="Sale" />
+        <p>Extra <span>Sale 30%</span> off</p>
+      </div>
+    </div>
+
+    <div class="mid_part">
+      <div class="redirect">
+        <div class="left_info">
+          <p>Let's configure you own <br> print product</p>
+          <p>The easiest way to get your print as you want</p>
+          <button type="submit">Print Your Own</button>
         </div>
-        <div class="sale_side">
-          <img src="/assets/icons/fire.svg" alt="Sale" />
-          <p>Extra <span>Sale 30%</span> off</p>
+        <div class="pic_grid">
+          <img src="/assets/images/pic1.png" alt="" />
+          <img src="/assets/images/pic3.png" alt="" />
+          <img src="/assets/images/pic2.png" alt="" />
+          <img src="/assets/images/pic4.png" alt="" />
         </div>
       </div>
+    </div>
   </body>
 </html>
