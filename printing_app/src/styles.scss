@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "Jakarta";
+    src: url("../public/fonts/PlusJakartaSans-VariableFont_wght.ttf");
+}
+
+* {
+    margin: 0;
+    font-family: "Jakarta";
+}
