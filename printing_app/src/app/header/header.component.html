@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main_cont">
+      <div class="location">
+        <img src="/assets/icons/location.svg" alt="location" />
+        <p>Find a store</p>
+      </div>
+
+      <div class="socials">
+        <img src="/assets/icons/twitter.svg" alt="twitter" />
+        <img src="/assets/icons/facebook.svg" alt="facebook" />
+        <img src="/assets/icons/instagram.svg" alt="instagram" />
+        <img src="/assets/icons/utube.svg" alt="utube" />
+      </div>
+    </div>
+
+    <div class="bottom_header">
+      <img src="/assets/icons/logo.svg" />
+      <div class="search">
+        <img src="/assets/icons/search_icon.svg" alt="search" />
+        <input type="text" placeholder="What are you looking for?" />
+        <button type="submit">Submit</button>
+      </div>
+
+      <div class="order_info">
+        <span class="icon_wrapper">
+          <img src="/assets/icons/phone.svg" alt="phone" />
+        </span>
+
+        <div class="contact">
+          <p>Hotline: 19008188</p>
+          <p>Pick up your order free</p>
+        </div>
+
+        <div class="user_details">
+          <div class="icon_wrapper2">
+            <img src="/assets/icons/user.svg" alt="User" />
+          </div>
+          <div class="icon_wrapper2">
+            <img src="/assets/icons/favourite.svg" alt="Favourite" />
+            <span class="badge">0</span>
+          </div>
+          <div class="icon_wrapper2">
+            <img src="/assets/icons/cart.svg" alt="Cart" />
+            <span class="badge">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="last_part">
+        <div class="right_side">
+          <p 
+            class="home" 
+            [class.selected]="selectedTab === 'home'" 
+            (click)="selectTab('home')">
+            Home
+          </p>
+          <p 
+            class="teespace" 
+            [class.selected]="selectedTab === 'teespace'" 
+            (click)="selectTab('teespace')">
+            TeeSpace
+          </p>
+          <p 
+            class="shop" 
+            [class.selected]="selectedTab === 'shop'" 
+            (click)="selectTab('shop')">
+            Shop
+          </p>
+          <p 
+            class="blog" 
+            [class.selected]="selectedTab === 'blog'" 
+            (click)="selectTab('blog')">
+            Blog
+          </p>
+          <p 
+            class="pages" 
+            [class.selected]="selectedTab === 'pages'" 
+            (click)="selectTab('pages')">
+            Pages
+          </p>
+        </div>
+        <div class="sale_side">
+          <img src="/assets/icons/fire.svg" alt="Sale" />
+          <p>Extra <span>Sale 30%</span> off</p>
+        </div>
+      </div>
+  </body>
+</html>
