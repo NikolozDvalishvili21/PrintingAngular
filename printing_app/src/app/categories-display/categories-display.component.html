@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main_cont">
+      <h4>Shopping by Categories</h4>
+      <div class="categories" *ngIf="categories.length > 0">
+        <div class="t-shirt" *ngFor="let category of categories">
+          <img [src]="category.picture" [alt]="category.name" />
+          <p>{{ category.name }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mid_parts">
+      <div class="left_banner">
+        <div class="banner_item">
+          <img src="/assets/images/banner.png" alt="Explore" />
+          <div class="text_overlay">
+            <h3>
+              Thousands of <br />
+              free templates
+            </h3>
+            <p>
+              Free and easy way to bring <br />
+              your ideas to life
+            </p>
+            <button>Explore More →</button>
+          </div>
+        </div>
+        <div class="banner_item">
+          <img
+            src="/assets/images/banner2.png"
+            alt="Create your unique style"
+          />
+          <div class="text_overlay">
+            <h3>
+              Create your <br />
+              unique style
+            </h3>
+            <p>
+              Free and easy way to create <br />
+              your ideas to life
+            </p>
+            <button>Shop Now →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

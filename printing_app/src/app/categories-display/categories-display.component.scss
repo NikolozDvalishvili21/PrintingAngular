@@ -1,0 +1,105 @@
+.main_cont {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+
+  h4 {
+    align-self: flex-start;
+    margin-left: 105px;
+    font-size: large;
+  }
+
+  .categories {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+
+    .t-shirt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.3s ease;
+
+      &:hover {
+        scale: 1.05;
+      }
+
+      img {
+        width: 180px;
+        border-radius: 50%;
+      }
+
+      p {
+        font-weight: 700;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+.mid_parts {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+  .left_banner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+
+    .banner_item {
+      position: relative;
+      width: 45%; // Adjust the width to fit the two images next to each other
+
+      img {
+        border-radius: 12px;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .text_overlay {
+        position: absolute;
+        top: 50%;
+        left: 20px; // Align text from left
+        transform: translateY(-50%);
+        color: white;
+        text-align: left;
+        z-index: 1;
+
+        h3 {
+          font-size: 1.6rem;
+          font-weight: bold;
+          margin: 0;
+          color: black;
+        }
+
+        p {
+          font-size: 1rem;
+          margin: 10px 0;
+          color: #7e7e7e;
+        }
+
+        button {
+          padding: 10px 20px;
+          background-color: #1db954;
+          color: white;
+          font-weight: bold;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #17a744;
+          }
+        }
+      }
+    }
+  }
+}

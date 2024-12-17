@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "T-shirt",
+        "picture": "assets/images/t-shirt.png"
+    },
+    {
+        "id": 2,
+        "name": "Long Sleeves",
+        "picture": "assets/images/long.png"
+    },
+    {
+        "id": 3,
+        "name": "Sweater",
+        "picture": "assets/images/sweater.png"
+    },
+    {
+        "id": 4,
+        "name": "Hoodies",
+        "picture": "assets/images/hoodie.png"
+    },
+    {
+        "id": 5,
+        "name": "Tanktop",
+        "picture": "assets/images/tanktop.png"
+    }
+]
