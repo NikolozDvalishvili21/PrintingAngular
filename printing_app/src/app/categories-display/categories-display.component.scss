@@ -55,7 +55,7 @@
 
     .banner_item {
       position: relative;
-      width: 45%; // Adjust the width to fit the two images next to each other
+      width: 45%;
 
       img {
         border-radius: 12px;
@@ -66,7 +66,7 @@
       .text_overlay {
         position: absolute;
         top: 50%;
-        left: 20px; // Align text from left
+        left: 20px;
         transform: translateY(-50%);
         color: white;
         text-align: left;
@@ -98,6 +98,109 @@
           &:hover {
             background-color: #17a744;
           }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .mid_parts {
+    .left_banner {
+      padding-left: 50px;
+      padding-right: 50px;
+
+      .banner_item {
+        width: 48%;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .main_cont {
+    h4 {
+      margin-left: 20px;
+      font-size: 1.5rem;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .t-shirt {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+  }
+
+  .mid_parts {
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .left_banner {
+      flex-direction: column;
+      padding-left: 0;
+      padding-right: 0;
+
+      .banner_item {
+        width: 100%;
+        margin-bottom: 20px;
+
+        img {
+          border-radius: 8px;
+        }
+
+        .text_overlay {
+          position: absolute;
+          bottom: 20px;
+          left: 20px;
+          transform: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .main_cont {
+    h4 {
+      font-size: 1.2rem;
+      margin-left: 10px;
+    }
+
+    .categories .t-shirt {
+      img {
+        width: 120px;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .mid_parts {
+    .left_banner {
+      padding-left: 10px;
+      padding-right: 10px;
+
+      .banner_item {
+        width: 100%;
+
+        img {
+          border-radius: 8px;
+          width: 300px;
+          padding: 0;
+        }
+
+        .text_overlay {
+          position: absolute;
+          bottom: 20px;
+          left: 10px;
+          transform: none;
         }
       }
     }
