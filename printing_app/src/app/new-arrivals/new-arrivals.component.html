@@ -1,0 +1,44 @@
+<div class="new-arrivals">
+  <h2 class="section-title">New Arrivals</h2>
+
+  <div class="product-list">
+    <div
+      *ngFor="let product of products"
+      class="product-card"
+      [ngClass]="{ sale: product.sale > 0 }"
+    >
+      <span *ngIf="product.hot" class="badge hot">Hot</span>
+
+      <span *ngIf="product.sale > 0" class="badge sale">
+        -{{ product.sale }}%
+      </span>
+
+      <img [src]="product.picture" [alt]="product.name" />
+
+      <div class="product-details">
+        <p class="product-name">{{ product.name }}</p>
+
+        <p class="product-price">
+          <span
+            *ngIf="product.sale > 0"
+            class="current-price"
+            style="color: #1db954"
+          >
+            ${{ getSalePrice(product.sizes[0].price, product.sale) }}
+          </span>
+          <span
+            *ngIf="product.sale > 0"
+            class="old-price"
+            style="text-decoration: line-through; color: #888"
+          >
+            ${{ product.sizes[0].price }}
+          </span>
+
+          <span *ngIf="product.sale === 0">
+            {{ getPriceRange(product.sizes) }}
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
