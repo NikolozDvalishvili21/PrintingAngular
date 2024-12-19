@@ -10,9 +10,9 @@ export interface Product {
   category: string;
   status: string;
   hot: boolean;
-  sale: number; // Sale percentage (e.g., 10 for 10%)
+  sale: number; 
   categoryId: number;
-  sizes: { size: string; price: number }[]; // Array of sizes and prices
+  sizes: { size: string; price: number }[]; 
 }
 
 @Component({

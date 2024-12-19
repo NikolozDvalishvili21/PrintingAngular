@@ -1,0 +1,111 @@
+$green: #2ebb77;
+$orange: #fdba74;
+$gray: #c3c3c3;
+$black: #b479d9;
+$white: #fff;
+
+.hot-under-39 {
+  width: 90%;
+  margin: 40px auto;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .view-all {
+      color: $black;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+
+  .product-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .product-card {
+      width: 23%;
+      background-color: $white;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: 0.3s ease;
+      position: relative;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      img {
+        width: 100%;
+        display: block;
+      }
+
+      .badges {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .badge {
+          padding: 4px 8px;
+          font-size: 0.8rem;
+          border-radius: 4px;
+          color: $white;
+
+          &.sale {
+            background-color: $green;
+          }
+
+          &.new {
+            background-color: $black;
+          }
+
+          &.hot {
+            background-color: $orange;
+          }
+        }
+      }
+
+      .product-details {
+        padding: 10px;
+        text-align: center;
+
+        .product-name {
+          font-size: 1rem;
+          font-weight: bold;
+          margin: 10px 0;
+        }
+
+        .product-price {
+          font-size: 0.9rem;
+          font-weight: 700;
+
+          .current-price {
+            color: $green;
+            font-weight: bold;
+          }
+
+          .old-price {
+            color: $gray;
+            text-decoration: line-through;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+}

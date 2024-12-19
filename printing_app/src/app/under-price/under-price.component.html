@@ -1,0 +1,29 @@
+<div class="hot-under-39">
+  <div class="header">
+    <h2>Hot under $39</h2>
+    <a href="#" class="view-all">View All →</a>
+  </div>
+  <div class="product-list">
+    <div *ngFor="let product of productsUnder39" class="product-card">
+      <div class="badges">
+        <span *ngIf="product.sale > 0" class="badge sale">Sale</span>
+        <span *ngIf="product.status === 'new'" class="badge new">New</span>
+        <span *ngIf="product.hot" class="badge hot">Hot</span>
+      </div>
+      <img [src]="product.picture" [alt]="product.name" />
+      <div class="product-details">
+        <p class="product-name">{{ product.name }}</p>
+        <p class="product-price">
+          <span *ngIf="product.sizes.length > 1">
+            ${{ product.sizes[0].price }} – ${{
+              product.sizes[product.sizes.length - 1].price
+            }}
+          </span>
+          <span *ngIf="product.sizes.length === 1">
+            ${{ product.sizes[0].price }}
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

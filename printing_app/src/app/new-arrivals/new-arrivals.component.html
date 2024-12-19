@@ -2,8 +2,9 @@
   <h2 class="section-title">New Arrivals</h2>
 
   <div class="product-list">
+    <!-- Use slice pipe to show only the first 4 products -->
     <div
-      *ngFor="let product of products"
+      *ngFor="let product of products | slice:0:4"
       class="product-card"
       [ngClass]="{ sale: product.sale > 0 }"
     >

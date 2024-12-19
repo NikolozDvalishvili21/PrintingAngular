@@ -61,6 +61,51 @@
     "hot": true,
     "sale": 10,
     "categoryId": 1,
-    "sizes": [{ "size": "XS", "price": 31.00 }]
+    "sizes": [{ "size": "XS", "price": 31.0 }]
+  },
+  {
+    "id": 5,
+    "picture": "/assets/images/Adult.png",
+    "name": "Adult Qunatity Tee",
+    "description": "lorem ipsum dolor sit amet, consectetur adipiscing",
+    "category": "T-Shirts",
+    "status": "new",
+    "hot": false,
+    "sale": 10,
+    "categoryId": 1,
+    "sizes": [
+      { "size": "L", "price": 26.0 },
+      { "size": "XL", "price": 29.0 }
+    ]
+  },
+  {
+    "id": 6,
+    "picture": "/assets/images/print-hoodie.png",
+    "name": "All-Over-Print Hoodie",
+    "description": "lorem ipsum dolor sit amet, consectetur adipiscing",
+    "category": "Hoodies",
+    "status": "new",
+    "hot": false,
+    "sale": 10,
+    "categoryId": 4,
+    "sizes": [
+      { "size": "L", "price": 26.0 },
+      { "size": "XL", "price": 29.0 }
+    ]
+  },
+  {
+    "id": 7,
+    "picture": "/assets/images/AOP.png",
+    "name": "AOP Cut & Sew Tee",
+    "description": "lorem ipsum dolor sit amet, consectetur adipiscing",
+    "category": "T-Shirts",
+    "status": "new",
+    "hot": false,
+    "sale": 10,
+    "categoryId": 1,
+    "sizes": [
+      { "size": "L", "price": 26.0 },
+      { "size": "XL", "price": 29.0 }
+    ]
   }
 ]
