@@ -1,0 +1,42 @@
+<div class="outer_cont">
+  <div class="main_cont">
+    <h4>How to design and order custom T-shirts</h4>
+    <div class="inner_cont">
+      <div class="list">
+        <div
+          class="first"
+          [ngClass]="{ selected: selectedIndex === 0 }"
+          (click)="selectItem(0)"
+        >
+          <div class="list_item">1</div>
+          <p>Choose from 412 custom products in <br />our catalog</p>
+        </div>
+        <div
+          class="second"
+          [ngClass]="{ selected: selectedIndex === 1 }"
+          (click)="selectItem(1)"
+        >
+          <div class="list_item">2</div>
+          <p>
+            Customize your design with graphics,<br />
+            text or your own uploaded images.
+          </p>
+        </div>
+        <div
+          class="third"
+          [ngClass]="{ selected: selectedIndex === 2 }"
+          (click)="selectItem(2)"
+        >
+          <div class="list_item">3</div>
+          <p>
+            Get your order sent to your door with <br />
+            free standard shipping.
+          </p>
+        </div>
+      </div>
+      <div class="laptop">
+        <img src="/assets/images/laptop.png" alt="" srcset="" />
+      </div>
+    </div>
+  </div>
+</div>
