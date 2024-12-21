@@ -40,3 +40,28 @@
     </div>
   </div>
 </div>
+
+<div class="custom_shirt_container">
+  <div class="inner_custom_cont">
+    <div class="top_part">
+      <h4>Free design templates</h4>
+      <button>View All →</button>
+    </div>
+
+    <div class="outer_main">
+      <div class="main_part" *ngFor="let item of galleryItems; last as isLast">
+        <div class="img-container" [class.overlay-container]="isLast">
+          <img [src]="item.image" alt="" srcset="" />
+          <div class="overlay" *ngIf="isLast">
+            <span class="overlay-text">+28</span>
+            <span>Collections</span>
+          </div>
+        </div>
+        <ng-container *ngIf="!isLast">
+          <p>{{ item.title }}</p>
+          <p>{{ item.resources }}</p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
