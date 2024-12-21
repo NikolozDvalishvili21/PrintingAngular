@@ -7,6 +7,10 @@ interface GalleryItem {
   image: string;
 }
 
+interface integratedCompanies {
+  image: string;
+}
+
 @Component({
   selector: 'app-last-part',
   imports: [CommonModule],
@@ -37,6 +41,34 @@ export class LastPartComponent {
       title: 'Collections',
       resources: '+28',
       image: '/assets/images/last.png',
+    },
+  ];
+
+  // Companues data
+  integratedCompany: integratedCompanies[] = [
+    {
+      image: '/assets/icons/spotify.png',
+    },
+    {
+      image: '/assets/icons/lattice.png',
+    },
+    {
+      image: '/assets/icons/upwork.png',
+    },
+    {
+      image: '/assets/icons/dribble.png',
+    },
+    {
+      image: '/assets/icons/feedly.png',
+    },
+    {
+      image: '/assets/icons/hopin.png',
+    },
+    {
+      image: '/assets/icons/amazon.png',
+    },
+    {
+      image: '/assets/icons/ebay.png',
     },
   ];
 

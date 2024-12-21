@@ -65,3 +65,16 @@
     </div>
   </div>
 </div>
+
+<div class="companies_full">
+  <div class="left_text">
+    <h4>We integrate with</h4>
+    <button>And More →</button>
+  </div>
+
+  <div class="right_companies">
+    <div *ngFor="let company of integratedCompany">
+      <img [src]="company.image" alt="" srcset="" />
+    </div>
+  </div>
+</div>
