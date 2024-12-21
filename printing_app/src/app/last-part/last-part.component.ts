@@ -35,7 +35,7 @@ export class LastPartComponent {
     },
     {
       title: 'Collections',
-      resources: '28 resources',
+      resources: '+28',
       image: '/assets/images/last.png',
     },
   ];

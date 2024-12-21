@@ -53,7 +53,7 @@
         <div class="img-container" [class.overlay-container]="isLast">
           <img [src]="item.image" alt="" srcset="" />
           <div class="overlay" *ngIf="isLast">
-            <span class="overlay-text">+28</span>
+            <span class="overlay-text">{{ item.resources }}</span>
             <span>Collections</span>
           </div>
         </div>
