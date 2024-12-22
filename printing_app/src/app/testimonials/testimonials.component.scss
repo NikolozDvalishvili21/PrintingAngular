@@ -1,0 +1,96 @@
+// Colors
+$bg-light: #f7f7f7;
+$btn-dark: #000;
+$text-primary: #000;
+$text-secondary: #666;
+$text-white: #fff;
+$testimonial_bg: #E5F4ED;
+
+// Border Radius
+$radius-lg: 16px;
+$radius-sm: 8px;
+
+.main_cont {
+    margin-top: 40px;
+    width: 90%;
+    display: flex;
+    margin: 30px auto;
+    justify-content: space-between;
+  .download {
+    position: relative;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+    //   display: block;
+      height: 400px;
+    }
+    
+    .download_content {
+      position: absolute;
+      top: 48px;
+      left: 48px;
+      
+      h2 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 12px;
+        color: $text-primary;
+      }
+      
+      p {
+        color: $text-secondary;
+        font-size: 18px;
+        margin-bottom: 24px;
+      }
+      
+      .store_buttons {
+        display: flex;
+        gap: 16px;
+        
+        button {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 16px;
+          border-radius: $radius-sm;
+          border: none;
+          cursor: pointer;
+          transition: opacity 0.2s;
+          
+          .btn_text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            
+            span {
+              font-size: 12px;
+              letter-spacing: 0.5px;
+            }
+            
+            strong {
+              font-size: 16px;
+            }
+          }
+          
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+        
+        .google_btn, .apple_btn {
+          background-color: $btn-dark;
+          color: $text-white;
+        }
+      }
+    }
+  }
+
+  .testimonials {
+    background-color: $testimonial_bg;
+    width: 50%;
+    height: 400px;
+    border-radius: 12px;
+  }
+}

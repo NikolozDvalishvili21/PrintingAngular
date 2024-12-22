@@ -5,10 +5,11 @@ import { CategoriesDisplayComponent } from "./categories-display/categories-disp
 import { NewArrivalsComponent } from "./new-arrivals/new-arrivals.component";
 import { UnderPriceComponent } from './under-price/under-price.component';
 import { LastPartComponent } from "./last-part/last-part.component";
+import { TestimonialsComponent } from './testimonials/testimonials.component';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, CategoriesDisplayComponent, NewArrivalsComponent, UnderPriceComponent, LastPartComponent],
+  imports: [HeaderComponent, CategoriesDisplayComponent, NewArrivalsComponent, UnderPriceComponent, LastPartComponent, TestimonialsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
