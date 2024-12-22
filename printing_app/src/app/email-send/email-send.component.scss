@@ -26,12 +26,17 @@ $arrow-color: #2EBB77;
         width: 100%;
         padding: 5px;
         padding-left: 15px;
-        padding-right: 30px; /* Extra padding for the arrow */
+        padding-right: 30px; 
         height: 56px;
         outline: none;
         border: none;
         border-radius: 12px;
         box-shadow: 0 4px 50px 8px rgba(0, 0, 0, 0.1);
+        transition: scale 0.3s ease;
+      }
+
+      input:focus {
+        scale: 1.01;
       }
   
       .arrow {

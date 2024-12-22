@@ -2,7 +2,7 @@
     <div class="get_news">
         <h4>Get the latest news, events & more <br>delivered to your inbox.</h4>
         <form class="input-wrapper" action="/submit-email" method="POST">
-            <input type="email" [(ngModel)]="inputtedEmail"  name="email" placeholder="Your email address">
+            <input type="email" [(ngModel)]="inputtedEmail" autocomplete="off" name="email" placeholder="Your email address">
             <button (click)="sendEmail()" type="submit" class="arrow">→</button>
         </form>
     </div>
