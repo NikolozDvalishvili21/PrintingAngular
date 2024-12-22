@@ -4,51 +4,52 @@ $btn-dark: #000;
 $text-primary: #000;
 $text-secondary: #666;
 $text-white: #fff;
-$testimonial_bg: #E5F4ED;
+$testimonial_bg: #e5f4ed;
+$position_clr: #9b9b9b;
 
 // Border Radius
 $radius-lg: 16px;
 $radius-sm: 8px;
 
 .main_cont {
-    margin-top: 40px;
-    width: 90%;
-    display: flex;
-    margin: 30px auto;
-    justify-content: space-between;
+  margin-top: 40px;
+  width: 90%;
+  display: flex;
+  margin: 30px auto;
+  justify-content: space-between;
   .download {
     position: relative;
     border-radius: $radius-lg;
     overflow: hidden;
-    
+
     img {
       width: 100%;
-    //   display: block;
+      //   display: block;
       height: 400px;
     }
-    
+
     .download_content {
       position: absolute;
       top: 48px;
       left: 48px;
-      
+
       h2 {
         font-size: 32px;
         font-weight: bold;
         margin-bottom: 12px;
         color: $text-primary;
       }
-      
+
       p {
         color: $text-secondary;
         font-size: 18px;
         margin-bottom: 24px;
       }
-      
+
       .store_buttons {
         display: flex;
         gap: 16px;
-        
+
         button {
           display: flex;
           align-items: center;
@@ -58,28 +59,29 @@ $radius-sm: 8px;
           border: none;
           cursor: pointer;
           transition: opacity 0.2s;
-          
+
           .btn_text {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            
+
             span {
               font-size: 12px;
               letter-spacing: 0.5px;
             }
-            
+
             strong {
               font-size: 16px;
             }
           }
-          
+
           &:hover {
             opacity: 0.9;
           }
         }
-        
-        .google_btn, .apple_btn {
+
+        .google_btn,
+        .apple_btn {
           background-color: $btn-dark;
           color: $text-white;
         }
@@ -90,7 +92,93 @@ $radius-sm: 8px;
   .testimonials {
     background-color: $testimonial_bg;
     width: 50%;
-    height: 400px;
+    height: 360px;
     border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px;
+
+    h4 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .review_text {
+      font-size: 21px;
+      font-style: italic;
+      line-height: 1.5;
+      max-width: 630px;
+      height: auto;
+      margin: 0 0 15px;
+      overflow-wrap: break-word; 
+    }
+
+    .author_slider {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .author {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 60px;
+          height: 60px;
+          border: 3px solid white;
+          border-radius: 50%;
+          margin-right: 15px;
+        }
+
+        .name_job {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 4px;
+
+          p:first-child {
+            font-weight: 700;
+            font-size: 16px;
+            margin: 0;
+          }
+
+          p:nth-child(2) {
+            font-size: 13px;
+            color: $position_clr;
+            margin: 0;
+          }
+        }
+      }
+
+      .arrow-buttons {
+        display: flex;
+        gap: 8px;
+
+        .arrow-btn {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: white;
+          border: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          color: #666;
+          transition: all 0.2s ease;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+          &:hover {
+            background: #f5f5f5;
+          }
+
+          svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
   }
 }

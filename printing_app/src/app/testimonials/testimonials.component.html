@@ -46,22 +46,55 @@
   </div>
   <div class="testimonials">
     <h4>Testimonials</h4>
-
-    <div class="review_text">
-      “For all your printing prerequisites. Offer to make and print their
-      pamphlets, business cards, solicitations, and occasion programs.”
-    </div>
-
+  
+    <p class="review_text">{{ testimonials[currentIndex].review }}</p>
+  
     <div class="author_slider">
       <div class="author">
-        <img src="" alt="" srcset="" />
+        <img [src]="testimonials[currentIndex].author.image" alt="Author image" />
         <div class="name_job">
-          <p>Eddy M.</p>
-          <p>Designer at Lift</p>
+          <p>{{ testimonials[currentIndex].author.name }}</p>
+          <p>{{ testimonials[currentIndex].author.position }}</p>
         </div>
       </div>
-
-      <div class="arrows"></div>
+  
+      <div class="arrow-buttons">
+        <button class="arrow-btn" (click)="prevTestimonial()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path
+              d="M15 18l-6-6 6-6"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <button class="arrow-btn" (click)="nextTestimonial()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path
+              d="M9 18l6-6-6-6"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
+  
 </div>
