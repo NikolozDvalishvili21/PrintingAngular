@@ -3,10 +3,15 @@
     <div class="categories">
       <h3>Product categories</h3>
       <div class="cats_displ">
-        <div *ngFor="let category of categories">
+        <div
+          *ngFor="let category of categories"
+          (click)="selectCategory(category.id, category.name)"
+          [ngClass]="{ selected: selectedCategoryId === category.id }"
+          class="category-item"
+        >
           <p>
             {{ category.name }}
-            <span> {{ categoryProductCount[category.id] || 0 }}</span>
+            <span>{{ categoryProductCount[category.id] || 0 }}</span>
           </p>
         </div>
       </div>
@@ -44,21 +49,69 @@
     </div>
 
     <div class="prices">
-        <h3>Filter by price</h3>
-        <div 
-          class="price-range-item" 
-          *ngFor="let range of ['All', '0-40', '40-80', '80-120', '120-160']"
-          [ngClass]="{'selected': selectedPriceRange === range}"
-          (click)="selectPriceRange(range)">
-          <p>
-            <span>{{ range === 'All' ? 'All' : range.replace('-', '$ - ') }}{{ range !== 'All' ? '$' : '' }}</span>
-          </p>
-        </div>
+      <h3>Filter by price</h3>
+      <div
+        class="price-range-item"
+        *ngFor="let range of ['All', '0-40', '40-80', '80-120', '120-160']"
+        [ngClass]="{ selected: selectedPriceRange === range }"
+        (click)="selectPriceRange(range)"
+      >
+        <p>
+          <span
+            >{{ range === "All" ? "All" : range.replace("-", "$ - ")
+            }}{{ range !== "All" ? "$" : "" }}</span
+          >
+        </p>
       </div>
-      
+    </div>
   </div>
 
   <div class="products_display">
-    
+    <h2 class="section-title">{{ selectedCategoryName }}</h2>
+
+    <div *ngIf="products.length === 0" class="no-products-message">
+      <p>No products available for this filter.</p>
+    </div>
+
+    <div class="product-list">
+      <div
+        *ngFor="let product of products"
+        class="product-card"
+        [ngClass]="{ sale: product.sale > 0 }"
+      >
+        <span *ngIf="product.hot" class="badge hot">Hot</span>
+
+        <span *ngIf="product.sale > 0" class="badge sale">
+          -{{ product.sale }}%
+        </span>
+
+        <img [src]="product.picture" [alt]="product.name" />
+
+        <div class="product-details">
+          <p class="product-name">{{ product.name }}</p>
+
+          <p class="product-price">
+            <span
+              *ngIf="product.sale > 0"
+              class="current-price"
+              style="color: #1db954"
+            >
+              ${{ getSalePrice(product.sizes[0].price, product.sale) }}
+            </span>
+            <span
+              *ngIf="product.sale > 0"
+              class="old-price"
+              style="text-decoration: line-through; color: #888"
+            >
+              ${{ product.sizes[0].price }}
+            </span>
+
+            <span *ngIf="product.sale === 0">
+              {{ getPriceRange(product.sizes) }}
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -6,42 +6,62 @@ import { CommonModule } from '@angular/common';
   selector: 'app-all-products',
   imports: [CommonModule, HttpClientModule],
   templateUrl: './all-products.component.html',
-  styleUrl: './all-products.component.scss',
+  styleUrls: ['./all-products.component.scss'],
 })
 export class AllProductsComponent implements OnInit {
   products: any[] = [];
+  filteredProducts: any[] = [];
+  originalProducts: any[] = []; // Store the original list of products
   categories: any[] = [];
   categoryProductCount: { [key: string]: number } = {};
   colorProductCount: { [key: string]: number } = {};
   sizeProductCount: { [key: string]: number } = {};
-  priceProductCount: { [key: string]: number } = {}; // Track products in each price range
-  selectedPriceRange: string = 'All'; // Track selected price range
-
+  priceProductCount: { [key: string]: number } = {};
+  selectedPriceRange: string = 'All';
+  selectedCategoryId: number | null = null;
+  selectedCategoryName: string = 'All Products'; 
 
   constructor(private http: HttpClient) {}
 
-
-
-
   ngOnInit(): void {
-    // Fetch products data
     this.http.get<any[]>('/assets/data/products.json').subscribe((data) => {
-      this.products = data;
+      this.originalProducts = data; 
+      this.products = [...this.originalProducts]; 
+      this.filteredProducts = [...this.products]; 
       this.updateCategoryProductCount();
       this.updateColorProductCount();
       this.updateSizeProductCount();
-      this.updatePriceProductCount(); // Update the price range counts
+      this.updatePriceProductCount();
     });
 
-    // Fetch categories data
     this.http.get<any[]>('/assets/data/categories.json').subscribe((data) => {
       this.categories = data;
     });
   }
 
-  // Update the product count for each category
+  filterProductsByCategory(): void {
+    if (this.selectedCategoryId !== null) {
+      this.products = this.originalProducts.filter(
+        (product) => product.categoryId === this.selectedCategoryId
+      );
+      this.selectedCategoryName =
+        this.categories.find(
+          (category) => category.id === this.selectedCategoryId
+        )?.name || 'All Products';
+    } else {
+      this.products = [...this.originalProducts]; // Reset to all products if no category selected
+      this.selectedCategoryName = 'All Products';
+    }
+  }
+
+  selectCategory(categoryId: number, categoryName: string): void {
+    this.selectedCategoryId = categoryId;
+    this.selectedCategoryName = categoryName;
+    this.filterProductsByCategory();
+  }
+
   updateCategoryProductCount(): void {
-    this.categoryProductCount = {}; // Reset product count
+    this.categoryProductCount = {};
     this.products.forEach((product) => {
       const categoryId = product.categoryId;
       if (this.categoryProductCount[categoryId]) {
@@ -53,9 +73,9 @@ export class AllProductsComponent implements OnInit {
   }
 
   updateColorProductCount(): void {
-    this.colorProductCount = {}; // Reset color product count
+    this.colorProductCount = {};
     this.products.forEach((product) => {
-      const color = product.color; // Assuming the color is stored in the 'color' field
+      const color = product.color;
       if (color) {
         if (this.colorProductCount[color]) {
           this.colorProductCount[color]++;
@@ -67,7 +87,7 @@ export class AllProductsComponent implements OnInit {
   }
 
   updateSizeProductCount(): void {
-    this.sizeProductCount = {}; // Reset size count
+    this.sizeProductCount = {};
     this.products.forEach((product) => {
       product.sizes.forEach((size: any) => {
         const sizeName = size.size;
@@ -80,36 +100,48 @@ export class AllProductsComponent implements OnInit {
     });
   }
 
-  // Update the product count for each price range
   updatePriceProductCount(): void {
-    this.priceProductCount = {}; // Reset price range count
+    this.priceProductCount = {};
     this.products.forEach((product) => {
-      const price = product.sizes[0]?.price; // Assuming price is in sizes[0].price for simplicity
+      const price = product.sizes[0]?.price;
       if (price !== undefined) {
-        // Include in the "All" range as well
-        this.priceProductCount['All'] = (this.priceProductCount['All'] || 0) + 1;
-  
+        this.priceProductCount['All'] =
+          (this.priceProductCount['All'] || 0) + 1;
+
         if (price <= 40) {
-          this.priceProductCount['0-40'] = (this.priceProductCount['0-40'] || 0) + 1;
+          this.priceProductCount['0-40'] =
+            (this.priceProductCount['0-40'] || 0) + 1;
         } else if (price > 40 && price <= 80) {
-          this.priceProductCount['40-80'] = (this.priceProductCount['40-80'] || 0) + 1;
+          this.priceProductCount['40-80'] =
+            (this.priceProductCount['40-80'] || 0) + 1;
         } else if (price > 80 && price <= 120) {
-          this.priceProductCount['80-120'] = (this.priceProductCount['80-120'] || 0) + 1;
+          this.priceProductCount['80-120'] =
+            (this.priceProductCount['80-120'] || 0) + 1;
         } else if (price > 120 && price <= 160) {
-          this.priceProductCount['120-160'] = (this.priceProductCount['120-160'] || 0) + 1;
+          this.priceProductCount['120-160'] =
+            (this.priceProductCount['120-160'] || 0) + 1;
         }
       }
     });
   }
 
   selectPriceRange(range: string): void {
-    this.selectedPriceRange = range; // Update selected range
+    this.selectedPriceRange = range;
   }
-  
 
-  // Helper method to get the category name by categoryId
+  getSalePrice(price: number, sale: number): number {
+    return price - (price * sale) / 100;
+  }
+
+  getPriceRange(sizes: any[]): string {
+    const prices = sizes.map((size) => size.price);
+    const minPrice = Math.min(...prices);
+    const maxPrice = Math.max(...prices);
+    return `$${minPrice} - $${maxPrice}`;
+  }
+
   getCategoryName(categoryId: number): string {
-    const category = this.categories.find(cat => cat.id === categoryId);
+    const category = this.categories.find((cat) => cat.id === categoryId);
     return category ? category.name : 'Unknown';
   }
 }
