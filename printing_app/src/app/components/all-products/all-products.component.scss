@@ -1,0 +1,128 @@
+.filter_section {
+  display: flex;
+  flex-direction: column;
+
+  .categories {
+    .cats_displ {
+      display: flex;
+      flex-direction: column;
+      width: 150px;
+      justify-content: space-around;
+
+      p {
+        display: flex;
+        justify-content: space-between;
+        color: #7e7e7e;
+        font-size: 13px;
+        margin-top: 10px;
+        width: 100%;
+      }
+
+      span {
+        margin-left: 30px;
+        text-align: right;
+        color: black;
+      }
+    }
+  }
+
+  .colors {
+    .clr_names {
+      display: flex;
+      flex-direction: column;
+      width: 150px;
+
+      .color-item {
+        display: flex;
+        justify-content: space-between;
+        color: #7e7e7e;
+        font-size: 13px;
+        margin-top: 10px;
+        width: 100%;
+        align-items: center;
+
+        .left_side {
+          display: flex;
+          gap: 7px;
+        }
+      }
+
+      .color-circle {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+      }
+
+      .black {
+        background-color: black;
+      }
+
+      .brown {
+        background-color: brown;
+      }
+
+      .red {
+        background-color: red;
+      }
+
+      .white {
+        background-color: white;
+        border: 1px solid gray;
+      }
+
+      .yellow {
+        background-color: yellow;
+      }
+
+      span {
+        color: black;
+      }
+    }
+  }
+
+  .sizes {
+    .size-item {
+      display: flex;
+      justify-content: space-between;
+      color: #7e7e7e;
+      font-size: 13px;
+      margin-top: 10px;
+      width: 150px;
+      align-items: center;
+
+      .left_side {
+        display: flex;
+        gap: 7px;
+      }
+
+      p {
+        width: 150px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      span {
+        color: black;
+      }
+    }
+  }
+
+  .price-range-item {
+    cursor: pointer;
+    margin: 10px 0;
+    color: #7e7e7e;
+    font-size: 13px;
+    width: fit-content;
+    transition: margin-left 0.3s ease;
+  
+    &.selected {
+      color: #2EBB77;
+      margin-left: 5px;
+    }
+  
+    span {
+      display: inline-block;
+    }
+  }
+  
+}

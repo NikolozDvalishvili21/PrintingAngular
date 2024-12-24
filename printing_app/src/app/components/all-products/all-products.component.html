@@ -1,0 +1,64 @@
+<div class="whole_component">
+  <div class="filter_section">
+    <div class="categories">
+      <h3>Product categories</h3>
+      <div class="cats_displ">
+        <div *ngFor="let category of categories">
+          <p>
+            {{ category.name }}
+            <span> {{ categoryProductCount[category.id] || 0 }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="colors">
+      <h3>Filter by color</h3>
+      <div class="clr_names">
+        <div
+          *ngFor="let color of ['black', 'brown', 'red', 'white', 'yellow']"
+          class="color-item"
+        >
+          <div class="left_side">
+            <div [ngClass]="color" class="color-circle"></div>
+            <span style="color: #7e7e7e">{{
+              color.charAt(0).toUpperCase() + color.slice(1)
+            }}</span>
+          </div>
+          <span>{{ colorProductCount[color] || 0 }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sizes">
+      <h3>Filter by size</h3>
+      <div
+        class="size-item"
+        *ngFor="let size of ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL']"
+      >
+        <p>
+          <span style="color: #7e7e7e">{{ size }}</span>
+          <span>{{ sizeProductCount[size] || 0 }}</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="prices">
+        <h3>Filter by price</h3>
+        <div 
+          class="price-range-item" 
+          *ngFor="let range of ['All', '0-40', '40-80', '80-120', '120-160']"
+          [ngClass]="{'selected': selectedPriceRange === range}"
+          (click)="selectPriceRange(range)">
+          <p>
+            <span>{{ range === 'All' ? 'All' : range.replace('-', '$ - ') }}{{ range !== 'All' ? '$' : '' }}</span>
+          </p>
+        </div>
+      </div>
+      
+  </div>
+
+  <div class="products_display">
+    
+  </div>
+</div>

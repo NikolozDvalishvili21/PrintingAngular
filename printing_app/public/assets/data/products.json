@@ -17,7 +17,8 @@
       { "size": "XL", "price": 89.95 },
       { "size": "2XL", "price": 129.95 },
       { "size": "3XL", "price": 159.95 }
-    ]
+    ],
+    "color": "black"
   },
   {
     "id": 2,
@@ -37,7 +38,8 @@
       { "size": "XL", "price": 84.95 },
       { "size": "2XL", "price": 110.95 },
       { "size": "3XL", "price": 119.95 }
-    ]
+    ],
+    "color": "black"
   },
   {
     "id": 3,
@@ -49,7 +51,8 @@
     "hot": true,
     "sale": 0,
     "categoryId": 1,
-    "sizes": [{ "size": "XS", "price": 26.0 }]
+    "sizes": [{ "size": "XS", "price": 26.0 }],
+    "color": "red"
   },
   {
     "id": 4,
@@ -61,7 +64,8 @@
     "hot": true,
     "sale": 10,
     "categoryId": 1,
-    "sizes": [{ "size": "XS", "price": 31.0 }]
+    "sizes": [{ "size": "XS", "price": 31.0 }],
+    "color": "white"
   },
   {
     "id": 5,
@@ -76,7 +80,8 @@
     "sizes": [
       { "size": "L", "price": 26.0 },
       { "size": "XL", "price": 29.0 }
-    ]
+    ],
+    "color": "yellow"
   },
   {
     "id": 6,
@@ -91,7 +96,8 @@
     "sizes": [
       { "size": "L", "price": 26.0 },
       { "size": "XL", "price": 29.0 }
-    ]
+    ],
+    "color": "brown"
   },
   {
     "id": 7,
@@ -106,6 +112,7 @@
     "sizes": [
       { "size": "L", "price": 26.0 },
       { "size": "XL", "price": 29.0 }
-    ]
+    ],
+    "color": "white"
   }
 ]

@@ -8,6 +8,7 @@ import { TestimonialsComponent } from '../../components/testimonials/testimonial
 import { EmailSendComponent } from '../../components/email-send/email-send.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import routes from '../../app.routes';
+import { ConfigOwnComponent } from '../../components/config-own/config-own.component';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +21,7 @@ import routes from '../../app.routes';
     TestimonialsComponent,
     EmailSendComponent,
     FooterComponent,
+    ConfigOwnComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
