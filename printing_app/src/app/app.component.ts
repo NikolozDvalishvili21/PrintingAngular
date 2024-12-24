@@ -1,17 +1,9 @@
 import { Component } from '@angular/core';
 // import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from "./header/header.component";
-import { CategoriesDisplayComponent } from "./categories-display/categories-display.component";
-import { NewArrivalsComponent } from "./new-arrivals/new-arrivals.component";
-import { UnderPriceComponent } from './under-price/under-price.component';
-import { LastPartComponent } from "./last-part/last-part.component";
-import { TestimonialsComponent } from './testimonials/testimonials.component';
-import { EmailSendComponent } from './email-send/email-send.component';
-import { FooterComponent } from './footer/footer.component';
-
+import { HomeComponent } from './Pages/home/home.component';
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, CategoriesDisplayComponent, NewArrivalsComponent, UnderPriceComponent, LastPartComponent, TestimonialsComponent, EmailSendComponent, FooterComponent],
+  imports: [HomeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
