@@ -7,6 +7,8 @@ import { LastPartComponent } from '../../components/last-part/last-part.componen
 import { TestimonialsComponent } from '../../components/testimonials/testimonials.component';
 import { EmailSendComponent } from '../../components/email-send/email-send.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import routes from '../../app.routes';
+
 @Component({
   selector: 'app-home',
   imports: [
@@ -21,5 +23,6 @@ import { FooterComponent } from '../../components/footer/footer.component';
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
+  standalone: true,
 })
 export class HomeComponent {}
