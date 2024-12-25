@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';  // Import RouterModule here
 
 export interface Product {
   id: number;
@@ -18,7 +19,7 @@ export interface Product {
 @Component({
   selector: 'app-new-arrivals',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],  // Add RouterModule here
   templateUrl: './new-arrivals.component.html',
   styleUrls: ['./new-arrivals.component.scss'],
 })
@@ -27,9 +28,17 @@ export class NewArrivalsComponent implements OnInit {
 
   constructor(private http: HttpClient) {}
 
+
+  onProductClick(productId: number) {
+    console.log('Product clicked with ID:', productId);
+  }
+  
+
   ngOnInit() {
+    console.log('NewArrivalsComponent initialized!');
     this.fetchProducts();
   }
+  
 
   fetchProducts() {
     this.http.get<Product[]>('/assets/data/products.json').subscribe({

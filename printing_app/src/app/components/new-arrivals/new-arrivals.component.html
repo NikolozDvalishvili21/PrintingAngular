@@ -7,6 +7,8 @@
       *ngFor="let product of products | slice:0:4"
       class="product-card"
       [ngClass]="{ sale: product.sale > 0 }"
+      [routerLink]="['/product', product.id]"
+      (click)="onProductClick(product.id)"
     >
       <span *ngIf="product.hot" class="badge hot">Hot</span>
 
