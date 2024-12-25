@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { Router, NavigationStart, NavigationEnd, Event as NavigationEvent } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { RouterModule } from '@angular/router';
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -8,19 +9,35 @@ import { RouterModule } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   selectedTab: string = 'home';
 
-  constructor(private router: Router) {
-    // Subscribe to router events
-    this.router.events.subscribe((event: NavigationEvent) => {
-      if (event instanceof NavigationStart) {
-        console.log(`Navigation started to ${event.url}`);
-      }
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    // Listen to navigation events
+    this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        console.log(`Navigation ended at ${event.url}`);
+        this.updateSelectedTab(event.url);
       }
     });
+
+    // Set the initial selected tab based on the current route
+    this.updateSelectedTab(this.router.url);
+  }
+
+  updateSelectedTab(url: string): void {
+    if (url.includes('/shop')) {
+      this.selectedTab = 'shop';
+    } else if (url.includes('/teespace')) {
+      this.selectedTab = 'teespace';
+    } else if (url.includes('/blog')) {
+      this.selectedTab = 'blog';
+    } else if (url.includes('/pages')) {
+      this.selectedTab = 'pages';
+    } else {
+      this.selectedTab = 'home';
+    }
   }
 
   selectTab(tab: string): void {

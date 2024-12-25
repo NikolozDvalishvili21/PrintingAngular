@@ -178,9 +178,10 @@ $span_color: #2ebb77;
     display: flex;
     gap: 40px;
 
-    p {
+    a {
       cursor: pointer;
-      font-weight: 600;
+      text-decoration: none;
+      color: black;
 
       &.selected {
         color: $span_color;
