@@ -22,6 +22,8 @@
       <div class="clr_names">
         <div
           *ngFor="let color of ['black', 'brown', 'red', 'white', 'yellow']"
+          (click)="selectColor(color)"
+          [ngClass]="{ selected: selectedColor === color }"
           class="color-item"
         >
           <div class="left_side">
@@ -40,6 +42,8 @@
       <div
         class="size-item"
         *ngFor="let size of ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL']"
+        (click)="selectSize(size)"
+        [ngClass]="{ selected: selectedSize === size }"
       >
         <p>
           <span style="color: #7e7e7e">{{ size }}</span>
@@ -67,7 +71,7 @@
   </div>
 
   <div class="products_display">
-    <h2 class="section-title">{{ selectedCategoryName }}</h2>
+    <h2 class="section-title">{{ getSelectedFilters() }}</h2>
 
     <div *ngIf="products.length === 0" class="no-products-message">
       <p>No products available for this filter.</p>

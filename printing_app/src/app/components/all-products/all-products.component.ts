@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 export class AllProductsComponent implements OnInit {
   products: any[] = [];
   filteredProducts: any[] = [];
-  originalProducts: any[] = []; // Store the original list of products
+  originalProducts: any[] = [];
   categories: any[] = [];
   categoryProductCount: { [key: string]: number } = {};
   colorProductCount: { [key: string]: number } = {};
@@ -19,15 +19,17 @@ export class AllProductsComponent implements OnInit {
   priceProductCount: { [key: string]: number } = {};
   selectedPriceRange: string = 'All';
   selectedCategoryId: number | null = null;
-  selectedCategoryName: string = 'All Products'; 
+  selectedCategoryName: string = 'All Products';
+  selectedColor: string | null = null;
+  selectedSize: string | null = null;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.http.get<any[]>('/assets/data/products.json').subscribe((data) => {
-      this.originalProducts = data; 
-      this.products = [...this.originalProducts]; 
-      this.filteredProducts = [...this.products]; 
+      this.originalProducts = data;
+      this.products = [...this.originalProducts];
+      this.filteredProducts = [...this.products];
       this.updateCategoryProductCount();
       this.updateColorProductCount();
       this.updateSizeProductCount();
@@ -49,15 +51,69 @@ export class AllProductsComponent implements OnInit {
           (category) => category.id === this.selectedCategoryId
         )?.name || 'All Products';
     } else {
-      this.products = [...this.originalProducts]; // Reset to all products if no category selected
+      this.products = [...this.originalProducts];
       this.selectedCategoryName = 'All Products';
     }
+    this.filterProductsByColor();
+    this.filterProductsBySize();
   }
 
   selectCategory(categoryId: number, categoryName: string): void {
     this.selectedCategoryId = categoryId;
     this.selectedCategoryName = categoryName;
     this.filterProductsByCategory();
+  }
+
+  filterProductsByColor(): void {
+    if (this.selectedColor) {
+      this.products = this.products.filter(
+        (product) => product.color === this.selectedColor
+      );
+    }
+  }
+
+  selectColor(color: string): void {
+    if (this.selectedColor === color) {
+      this.selectedColor = null;
+    } else {
+      this.selectedColor = color;
+    }
+    this.filterProductsByCategory();
+    this.filterProductsByColor();
+  }
+
+  filterProductsBySize(): void {
+    if (this.selectedSize) {
+      this.products = this.products.filter((product) =>
+        product.sizes.some((size: any) => size.size === this.selectedSize)
+      );
+    }
+  }
+
+  selectSize(size: string): void {
+    if (this.selectedSize === size) {
+      this.selectedSize = null;
+    } else {
+      this.selectedSize = size;
+    }
+    this.filterProductsByCategory();
+    this.filterProductsBySize();
+    this.filterProductsByPrice();
+  }
+
+  filterProductsByPrice(): void {
+    if (this.selectedPriceRange !== 'All') {
+      const [min, max] = this.selectedPriceRange.split('-').map(Number);
+
+      this.products = this.originalProducts.filter((product) =>
+        product.sizes.some((size: any) => {
+          const price = size.price;
+          return price >= min && price <= max;
+        })
+      );
+    } else {
+      this.products = [...this.originalProducts];
+    }
   }
 
   updateCategoryProductCount(): void {
@@ -127,6 +183,10 @@ export class AllProductsComponent implements OnInit {
 
   selectPriceRange(range: string): void {
     this.selectedPriceRange = range;
+    this.filterProductsByCategory();
+    this.filterProductsByColor(); 
+    this.filterProductsBySize(); 
+    this.filterProductsByPrice();
   }
 
   getSalePrice(price: number, sale: number): number {
@@ -144,4 +204,29 @@ export class AllProductsComponent implements OnInit {
     const category = this.categories.find((cat) => cat.id === categoryId);
     return category ? category.name : 'Unknown';
   }
+
+  getSelectedFilters(): string {
+    let filters = [];
+  
+    if (this.selectedCategoryName && this.selectedCategoryName !== 'All Products') {
+      filters.push(this.selectedCategoryName);
+    }
+  
+    if (this.selectedColor) {
+      filters.push(this.selectedColor);
+    }
+  
+    if (this.selectedSize) {
+      filters.push(this.selectedSize);
+    }
+  
+    if (this.selectedPriceRange && this.selectedPriceRange !== 'All') {
+      filters.push(this.selectedPriceRange);
+    }
+  
+    return filters.length > 0
+      ? `${filters.join(', ')} Products`
+      : 'All Products';
+  }
+  
 }

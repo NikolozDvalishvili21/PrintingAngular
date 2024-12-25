@@ -1,3 +1,5 @@
+$selected_bg: #f0f0f0;
+
 .whole_component {
   display: flex;
   width: 100%;
@@ -21,9 +23,10 @@
         width: 200px;
         justify-content: space-around;
 
-        p {
+        .category-item {
           display: flex;
           justify-content: space-between;
+          align-items: center;
           color: #7e7e7e;
           font-size: 15px;
           margin-top: 10px;
@@ -31,22 +34,30 @@
           cursor: pointer;
           padding: 5px;
           border-radius: 5px;
-          transition: background-color 0.3s ease;
-        }
+          transition: background-color 0.3s ease, color 0.3s ease;
 
-        p:hover {
-          background-color: #f0f0f0;
-        }
+          &:hover {
+            background-color: $selected_bg;
+          }
 
-        p.selected {
-          color: #2ebb77 !important;
-          background-color: #e0f8f2;
-        }
+          &.selected {
+            background-color: $selected_bg;
+            font-weight: bold;
+            border: 1px solid #ccc;
+          }
 
-        span {
-          margin-left: 30px;
-          text-align: right;
-          color: black;
+          p {
+            flex: 1;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+
+            span {
+              margin-left: 30px;
+              text-align: right;
+              color: black;
+            }
+          }
         }
       }
     }
@@ -59,12 +70,20 @@
 
         .color-item {
           display: flex;
-          justify-content: space-between;
-          color: #7e7e7e;
-          font-size: 15px;
-          margin-top: 10px;
-          width: 100%;
           align-items: center;
+          justify-content: space-between;
+          padding: 5px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: $selected_bg;
+          }
+
+          &.selected {
+            background-color: $selected_bg;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+          }
 
           .left_side {
             display: flex;
@@ -114,23 +133,33 @@
         margin-top: 10px;
         width: 200px;
         align-items: center;
-
-        .left_side {
-          display: flex;
-          gap: 7px;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    
+        &.selected {
+          background-color: $selected_bg;
+          color: #2ebb77 !important;
+          font-weight: bold;
         }
-
+    
+        &:hover {
+          background-color: $selected_bg;
+        }
+    
         p {
           width: 200px;
           display: flex;
           justify-content: space-between;
         }
-
+    
         span {
           color: black;
         }
       }
     }
+    
 
     .price-range-item {
       cursor: pointer;
