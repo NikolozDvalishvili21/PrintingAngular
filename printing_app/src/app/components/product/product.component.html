@@ -1,0 +1,65 @@
+<div class="product-container" *ngIf="product">
+  <div class="product-gallery">
+    <div class="main-image">
+      <span *ngIf="product.sale > 0" class="badge sale">Sale!</span>
+      <span *ngIf="product.hot" class="badge new">New</span>
+      <img [src]="product.picture" [alt]="product.name" />
+    </div>
+  </div>
+
+  <div class="product-info">
+    <div class="price">
+      {{
+        product.sizes.length > 1
+          ? getPriceRange(product.sizes)
+          : "$" + product.sizes[0].price.toFixed(2)
+      }}
+    </div>
+
+    <h1 class="title">{{ product.name }}</h1>
+    <p class="description">{{ product.description }}</p>
+
+    <div class="option-section">
+      <div class="option-title">Color: Select a color</div>
+      <div class="color-options">
+        <div class="color-option" style="background: black"></div>
+        <div class="color-option" style="background: #d2b48c"></div>
+        <div class="color-option active" style="background: white"></div>
+        <div class="color-option" style="background: red"></div>
+        <div class="color-option" style="background: yellow"></div>
+      </div>
+
+      <div class="option-title">Size: Select a size</div>
+      <div class="size-options">
+        <div *ngFor="let size of product.sizes" class="size-option">
+          {{ size.size }}
+        </div>
+      </div>
+    </div>
+
+    <div class="file-upload">
+      <p>Drag & Drop Files Here or</p>
+      <button>Browse Files</button>
+    </div>
+
+    <div class="add-to-cart-section">
+      <input type="number" class="quantity-input" value="1" min="1" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+
+    <div class="product-actions">
+      <div class="action-btn">
+        <span>♥</span>
+        Add to wishlist
+      </div>
+      <div class="action-btn">
+        <span>⇄</span>
+        Compare
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!product" class="error-message">
+  <p>Product not found!</p>
+</div>
