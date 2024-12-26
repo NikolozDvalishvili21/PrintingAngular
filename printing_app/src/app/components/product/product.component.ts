@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { CartService, CartItem } from '../../services/cart.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 export interface Product {
   id: number;
@@ -19,18 +22,18 @@ export interface Product {
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
-  imports: [CommonModule, HttpClientModule]
+  imports: [CommonModule, HttpClientModule, FormsModule]
 })
 export class ProductComponent implements OnInit {
-  product: Product | null = null; // Holds the product details
+  product: Product | null = null; 
+  quantity: number = 1
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient, private cartService: CartService) {}
 
   ngOnInit() {
-    // Extract the product ID from the route
     const productId = this.route.snapshot.paramMap.get('id');
     if (productId) {
-      this.fetchProductById(+productId); // Fetch the product details
+      this.fetchProductById(+productId); 
     }
   }
 
@@ -55,4 +58,19 @@ export class ProductComponent implements OnInit {
     const max = Math.max(...prices).toFixed(2);
     return min === max ? `$${min}` : `$${min} – $${max}`;
   }
+
+  addToCart(quantity: number): void {
+    if (this.product) {
+      const item: CartItem = {
+        id: this.product.id,
+        name: this.product.name,
+        picture: this.product.picture,
+        quantity: quantity,
+        price: this.product.sizes[0].price, 
+      };
+      this.cartService.addToCart(item);
+      console.log(`${quantity} of ${this.product.name} added to cart`);
+    }
+  }
 }
+

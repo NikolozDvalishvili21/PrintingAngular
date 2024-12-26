@@ -3,10 +3,11 @@
 /* Product container */
 .product-container {
   max-width: 1200px;
-  margin: 120px auto;
+  margin: 30px auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
+  align-items: center;
 }
 
 /* Image gallery */
@@ -179,6 +180,10 @@
   text-align: center;
   margin: 20px 0;
   border-radius: 4px;
+
+  input {
+    margin-top: 10px;
+  }
 }
 
 /* Wishlist and compare */

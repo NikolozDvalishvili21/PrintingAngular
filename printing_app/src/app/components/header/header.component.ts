@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -11,8 +12,9 @@ import { RouterModule } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   selectedTab: string = 'home';
+  cartItemCount: number = 0; 
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private cartService: CartService) {}
 
   ngOnInit(): void {
     // Listen to navigation events
@@ -22,8 +24,11 @@ export class HeaderComponent implements OnInit {
       }
     });
 
-    // Set the initial selected tab based on the current route
     this.updateSelectedTab(this.router.url);
+
+    this.cartService.getCartItems().subscribe((items) => {
+      this.cartItemCount = items.reduce((count, item) => count + item.quantity, 0);
+    });
   }
 
   updateSelectedTab(url: string): void {

@@ -82,6 +82,7 @@
         *ngFor="let product of products"
         class="product-card"
         [ngClass]="{ sale: product.sale > 0 }"
+        [routerLink]="['/product', product.id]"
       >
         <span *ngIf="product.hot" class="badge hot">Hot</span>
 

@@ -47,8 +47,8 @@
             <span class="badge">0</span>
           </div>
           <div class="icon_wrapper2">
-            <img src="/assets/icons/cart.svg" alt="Cart" />
-            <span class="badge">0</span>
+            <img src="/assets/icons/cart.svg" alt="Cart" [routerLink]="['/cart']"/>
+            <span class="badge">{{ cartItemCount }}</span>
           </div>
         </div>
       </div>
@@ -99,6 +99,5 @@
         <p>Extra <span>Sale 30%</span> off</p>
       </div>
     </div>
-    
   </body>
 </html>

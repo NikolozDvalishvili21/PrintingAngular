@@ -4,7 +4,7 @@
     <a href="#" class="view-all">View All →</a>
   </div>
   <div class="product-list">
-    <div *ngFor="let product of productsUnder39" class="product-card">
+    <div *ngFor="let product of productsUnder39" class="product-card" [routerLink]="['/product', product.id]">
       <div class="badges">
         <span *ngIf="product.sale > 0" class="badge sale">Sale</span>
         <span *ngIf="product.status === 'new'" class="badge new">New</span>

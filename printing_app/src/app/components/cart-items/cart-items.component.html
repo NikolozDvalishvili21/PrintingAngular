@@ -1,0 +1,21 @@
+<div class="cart-container">
+    <h1>Your Cart</h1>
+    <div class="cart-items">
+      <div class="cart-item" *ngFor="let item of cartItems">
+        <img [src]="item.picture" alt="{{ item.name }}" class="product-image" />
+        <div class="product-details">
+          <h2>{{ item.name }}</h2>
+          <p>Price: ${{ item.price.toFixed(2) }}</p>
+          <p>Quantity: {{ item.quantity }}</p>
+          <p>Total: ${{ (item.price * item.quantity).toFixed(2) }}</p>
+        </div>
+        <button class="remove-btn" (click)="removeItem(item)">Remove</button>
+      </div>
+    </div>
+    <div class="cart-footer" *ngIf="cartItems.length > 0">
+      <p class="total">Grand Total: ${{ getGrandTotal().toFixed(2) }}</p>
+      <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+    <p class="empty-cart" *ngIf="cartItems.length === 0">Your cart is empty!</p>
+  </div>
+  

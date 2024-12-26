@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 export interface Product {
   id: number;
@@ -19,7 +20,7 @@ export interface Product {
   templateUrl: './under-price.component.html',
   styleUrls: ['./under-price.component.scss'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
 })
 export class UnderPriceComponent implements OnInit {
   productsUnder39: Product[] = [];

@@ -39,12 +39,12 @@
 
     <div class="file-upload">
       <p>Drag & Drop Files Here or</p>
-      <button>Browse Files</button>
+      <input type="file" />Browse Files
     </div>
 
     <div class="add-to-cart-section">
-      <input type="number" class="quantity-input" value="1" min="1" />
-      <button class="add-to-cart-btn">Add to Cart</button>
+      <input type="number" class="quantity-input" [(ngModel)]="quantity" [value]="1" min="1" />
+      <button class="add-to-cart-btn" (click)="addToCart(quantity || 1)">Add to Cart</button>
     </div>
 
     <div class="product-actions">
