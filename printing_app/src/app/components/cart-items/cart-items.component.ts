@@ -29,4 +29,22 @@ export class CartItemsComponent implements OnInit {
     this.cartService.clearCart(); 
     this.cartItems.forEach((cartItem) => this.cartService.addToCart(cartItem));
   }
+
+  errorCheck(): void {
+    alert('You have to be signed in to buy products!');
+  }
+
+  checkout(): void {
+    const user = localStorage.getItem('user');
+    if (user) {
+      // If the user is signed in, show a purchase success message
+      alert('You have successfully bought the items!');
+      // You can also clear the cart after successful purchase
+      this.cartService.clearCart();
+      this.cartItems = [];
+    } else {
+      // If the user is not signed in, show an alert to sign in
+      this.errorCheck();
+    }
+  }
 }

@@ -1,0 +1,80 @@
+$primary-color: #2ebb77;
+$primary-color-hover: darken($primary-color, 10%);
+$primary-color-active: darken($primary-color, 15%);
+$background-color: #f9f9f9;
+$text-color: #333;
+$input-border-color: #ccc;
+$input-focus-border-color: $primary-color;
+$label-color: #666;
+$form-padding: 20px;
+$border-radius: 8px;
+$box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+.sign-up-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.sign-up-container {
+  max-width: 400px;
+  width: 100%;
+  padding: $form-padding;
+  background-color: $background-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
+
+h2 {
+  text-align: center;
+  color: $text-color;
+  margin-bottom: 20px;
+}
+
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 14px;
+  color: $label-color;
+}
+
+input {
+  width: 95%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid $input-border-color;
+  border-radius: 4px;
+  font-size: 14px;
+
+  &:focus {
+    border-color: $input-focus-border-color;
+    outline: none;
+  }
+}
+
+.submit-btn {
+  background-color: $primary-color;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $primary-color-hover;
+  }
+
+  &:active {
+    background-color: $primary-color-active;
+  }
+}

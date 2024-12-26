@@ -14,7 +14,7 @@
     </div>
     <div class="cart-footer" *ngIf="cartItems.length > 0">
       <p class="total">Grand Total: ${{ getGrandTotal().toFixed(2) }}</p>
-      <button class="checkout-btn">Proceed to Checkout</button>
+      <button class="checkout-btn" (click)="checkout()">Proceed to Checkout</button>
     </div>
     <p class="empty-cart" *ngIf="cartItems.length === 0">Your cart is empty!</p>
   </div>

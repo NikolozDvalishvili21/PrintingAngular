@@ -40,14 +40,25 @@
 
         <div class="user_details">
           <div class="icon_wrapper2">
-            <img src="/assets/icons/user.svg" alt="User" />
+            <img
+              src="/assets/icons/user.svg"
+              alt="User"
+              (click)="openModal()"
+            />
+          </div>
+          <div *ngIf="username" class="username" (click)="logout()" style="cursor: pointer;">
+            {{ username }}
           </div>
           <div class="icon_wrapper2">
             <img src="/assets/icons/favourite.svg" alt="Favourite" />
             <span class="badge">0</span>
           </div>
           <div class="icon_wrapper2">
-            <img src="/assets/icons/cart.svg" alt="Cart" [routerLink]="['/cart']"/>
+            <img
+              src="/assets/icons/cart.svg"
+              alt="Cart"
+              [routerLink]="['/cart']"
+            />
             <span class="badge">{{ cartItemCount }}</span>
           </div>
         </div>
@@ -97,6 +108,15 @@
       <div class="sale_side">
         <img src="/assets/icons/fire.svg" alt="Sale" />
         <p>Extra <span>Sale 30%</span> off</p>
+      </div>
+    </div>
+
+    <div *ngIf="isModalOpen" class="modal-overlay">
+      <div class="modal-content">
+        <button class="close-modal" (click)="closeModal()">X</button>
+        <h2>Join Us</h2>
+        <button class="signIn" [routerLink]="['/signIn']">Sign In</button>
+        <button class="signUp" [routerLink]="['/signUp']">Sign Up</button>
       </div>
     </div>
   </body>
